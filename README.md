@@ -1,4 +1,4 @@
-# droidglobal [![](https://jitpack.io/v/choladhara/droidglobal.svg)](https://jitpack.io/#choladhara/droidglobal)
+# DroidGlobal [![](https://jitpack.io/v/choladhara/droidglobal.svg)](https://jitpack.io/#choladhara/droidglobal)
 
 
 # Step 1.
