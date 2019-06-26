@@ -125,15 +125,15 @@ public class HttpQuery {
 
 
 
-    String dbName       = "";
-    String tableName    = "";
-    String select       = "";
-    int limit           = 0;
-    int offset          = 0;
-    String groupBy      = "";
-    String orderBy      = "";
-    String params;
-    StringBuilder innerJoin     = new StringBuilder("");
-    StringBuilder where         = new StringBuilder("");
+    private String dbName       = "";
+    private String tableName    = "";
+    private String select       = "";
+    private int limit           = 0;
+    private int offset          = 0;
+    private String groupBy      = "";
+    private String orderBy      = "";
+    private String params;
+    private StringBuilder innerJoin     = new StringBuilder("");
+    private StringBuilder where         = new StringBuilder("");
 
 }
