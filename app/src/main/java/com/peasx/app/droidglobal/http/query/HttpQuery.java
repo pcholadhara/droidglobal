@@ -21,6 +21,11 @@ public class HttpQuery {
         return this;
     }
 
+    public HttpQuery count(String count, String as){
+        this.select = " COUNT( "+ count+" ) AS "+as;
+        return this;
+    }
+
     public HttpQuery innerJoin(String table1, String column_1, String table2, String column_2){
         innerJoin.append(" INNER JOIN  ").append(table1).append(".").append(column_1)
                 .append(" ON ")
@@ -61,12 +66,12 @@ public class HttpQuery {
     }
 
     public HttpQuery where(String column, String value){
-        where.append("WHERE ").append(column).append(" = ").append(value);
+        where.append(" WHERE ").append(column).append(" = ").append(value);
         return this;
     }
 
     public HttpQuery where(String column, String operator, String value){
-        where.append("WHERE ").append(column).append(" " + operator + " ").append(value);
+        where.append(" WHERE ").append(column).append(" " + operator + " ").append(value);
         return this;
     }
 
@@ -77,7 +82,7 @@ public class HttpQuery {
 
 
     public HashMap<String, String> getMap(){
-        StringBuilder queryBuilder = new StringBuilder("SELECT");
+        StringBuilder queryBuilder = new StringBuilder("SELECT ");
         queryBuilder.append(select).append(" FROM ").append(tableName);
 
         queryBuilder.append(!innerJoin.toString().isEmpty() ? innerJoin : "");
