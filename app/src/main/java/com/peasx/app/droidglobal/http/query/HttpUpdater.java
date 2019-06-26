@@ -41,7 +41,7 @@ public class HttpUpdater {
                 json.put("db_name", dbName);
             }
 
-            if(!params.toString().isEmpty()){
+            if(params != null){
                 json.put("param", params);
             }
 
@@ -55,7 +55,7 @@ public class HttpUpdater {
 
     JSONObject json;
     JSONObject params;
-    String tableName = "";
-    String dbName = "";
+    String tableName    = "";
+    String dbName       = "";
 
 }

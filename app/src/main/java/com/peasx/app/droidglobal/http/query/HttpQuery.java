@@ -132,7 +132,7 @@ public class HttpQuery {
     private int offset          = 0;
     private String groupBy      = "";
     private String orderBy      = "";
-    private String params;
+    private String params       = "";
     private StringBuilder innerJoin     = new StringBuilder("");
     private StringBuilder where         = new StringBuilder("");
 
