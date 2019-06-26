@@ -26,6 +26,11 @@ public class HttpQuery {
         return this;
     }
 
+    public HttpQuery sum(String column, String as){
+        this.select = " SUM( "+ column+" ) AS "+as;
+        return this;
+    }
+
     public HttpQuery innerJoin(String table1, String column_1, String table2, String column_2){
         innerJoin.append(" INNER JOIN  ").append(table1).append(".").append(column_1)
                 .append(" ON ")
