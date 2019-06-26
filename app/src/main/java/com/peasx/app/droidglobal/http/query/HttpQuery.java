@@ -7,6 +7,11 @@ public class HttpQuery {
         this.tableName = tableName;
     }
 
+    public HttpQuery(String dbName, String tableName){
+        this.dbName = dbName;
+        this.tableName = tableName;
+    }
+
     public HttpQuery select(String tableColumns){
         this.select = tableColumns;
         return this;
@@ -86,6 +91,17 @@ public class HttpQuery {
     }
 
 
+    public HttpQuery filter(String filter, String[] params){
+        where.append(" WHERE ").append(filter);
+        StringBuilder queryBuilder = new StringBuilder("");
+        for(int i = 0; i < params.length ; i++){
+            queryBuilder.append((i < params.length-1) ? params[i] + ", " : params[i]);
+        }
+        this.params = queryBuilder.toString();
+        return this;
+    }
+
+
     public HashMap<String, String> getMap(){
         StringBuilder queryBuilder = new StringBuilder("SELECT ");
         queryBuilder.append(select).append(" FROM ").append(tableName).append(" ");
@@ -97,23 +113,26 @@ public class HttpQuery {
         queryBuilder.append(offset  > 0 ? " OFFSET " + offset : "");
         queryBuilder.append(!groupBy.isEmpty() ? groupBy : "");
 
-
         HashMap<String, String> map = new HashMap<>();
+        if(!dbName.isEmpty()){
+            map.put("db_name", dbName);
+        }
+
         map.put("json", queryBuilder.toString());
+        map.put("param", params);
         return map;
     }
 
 
 
-
-
-
+    String dbName       = "";
     String tableName    = "";
     String select       = "";
     int limit           = 0;
     int offset          = 0;
     String groupBy      = "";
     String orderBy      = "";
+    String params;
     StringBuilder innerJoin     = new StringBuilder("");
     StringBuilder where         = new StringBuilder("");
 

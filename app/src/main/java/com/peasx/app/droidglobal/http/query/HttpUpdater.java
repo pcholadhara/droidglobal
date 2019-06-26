@@ -16,6 +16,11 @@ public class HttpUpdater {
         this.tableName = tableName;
     }
 
+    public HttpUpdater(String dbName, String tableName){
+        this.dbName     = dbName;
+        this.tableName  = tableName;
+    }
+
     public HttpUpdater setColumns(JSONObject json) {
         this.json = json;
         return this;
@@ -31,9 +36,15 @@ public class HttpUpdater {
 
         try {
             json.put("table_name", tableName);
+
+            if(!dbName.isEmpty()){
+                json.put("db_name", dbName);
+            }
+
             if(!params.toString().isEmpty()){
                 json.put("param", params);
             }
+
             map.put("json", json.toString());
         } catch (JSONException ex){
             Log.d(JSONResponse.ERROR_TAG, ""+ex.toString());
@@ -45,5 +56,6 @@ public class HttpUpdater {
     JSONObject json;
     JSONObject params;
     String tableName = "";
+    String dbName = "";
 
 }
