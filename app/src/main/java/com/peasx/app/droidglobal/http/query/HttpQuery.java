@@ -52,7 +52,7 @@ public class HttpQuery {
     }
 
     public HttpQuery groupBy(String tableColumns){
-        this.groupBy = tableColumns;
+        this.groupBy = " GROUP BY " + tableColumns;
         return this;
     }
 
@@ -88,7 +88,7 @@ public class HttpQuery {
 
     public HashMap<String, String> getMap(){
         StringBuilder queryBuilder = new StringBuilder("SELECT ");
-        queryBuilder.append(select).append(" FROM ").append(tableName);
+        queryBuilder.append(select).append(" FROM ").append(tableName).append(" ");
 
         queryBuilder.append(!innerJoin.toString().isEmpty() ? innerJoin : "");
         queryBuilder.append(!where.toString().isEmpty() ? where : "");
