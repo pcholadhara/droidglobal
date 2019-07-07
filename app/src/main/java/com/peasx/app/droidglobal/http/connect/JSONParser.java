@@ -2,6 +2,7 @@ package com.peasx.app.droidglobal.http.connect;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -44,10 +45,20 @@ public class JSONParser implements JSONResponse{
         return success;
     }
 
-    public JSONObject getContents(){
+    public JSONObject getContent(){
         JSONObject cont = new JSONObject();
         try{
             cont = json.getJSONObject(CONTENTS);
+        }catch (JSONException ex){
+            Log.d(JSON_ERROR, ex.toString());
+        }
+        return cont;
+    }
+
+    public JSONArray getContents(){
+        JSONArray cont = new JSONArray();
+        try{
+            cont = json.getJSONArray(CONTENTS);
         }catch (JSONException ex){
             Log.d(JSON_ERROR, ex.toString());
         }

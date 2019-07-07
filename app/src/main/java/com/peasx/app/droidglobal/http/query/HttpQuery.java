@@ -1,5 +1,8 @@
 package com.peasx.app.droidglobal.http.query;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 
 public class HttpQuery {
@@ -123,6 +126,14 @@ public class HttpQuery {
         return map;
     }
 
+    private void runs(){
+        OnQuery q = new OnQuery(){
+            @Override
+            public void processObject(JSONObject jsonObject) {
+                super.processObject(jsonObject);
+            }
+        };
+    }
 
 
     private String dbName       = "";
