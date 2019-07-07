@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.peasx.app.droidglobal.R;
 
-
 public class FragmentOpener  {
     Context context;
     public FragmentOpener(Context context){

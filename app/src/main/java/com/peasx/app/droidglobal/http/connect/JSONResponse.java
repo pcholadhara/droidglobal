@@ -4,7 +4,7 @@ public interface JSONResponse {
 
     String SUCCESS      = "SUCCESS";
     String CONTENTS     = "CONTENTS";
-    String ERROR_TAG    = "ERROR::PEASX:";
+    String ERROR_TAG    = "HTTP_ERROR:";
 
 
 
