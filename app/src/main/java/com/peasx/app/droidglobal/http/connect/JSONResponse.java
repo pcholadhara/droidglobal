@@ -4,7 +4,8 @@ public interface JSONResponse {
 
     String SUCCESS      = "SUCCESS";
     String CONTENTS     = "CONTENTS";
-    String ERROR_TAG    = "HTTP_ERROR:";
+    String ERROR_TAG    = "HTTP_ERROR";
+    String JSON_ERROR   = "JSON_ERROR";
 
 
 
