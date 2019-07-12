@@ -20,6 +20,11 @@ public class JSONParser implements JSONResponse{
     }
 
 
+    public JSONObject getParsedJSON(){
+        parse();
+        return json;
+    }
+
     public JSONObject getJSON(){
           return json;
     }
