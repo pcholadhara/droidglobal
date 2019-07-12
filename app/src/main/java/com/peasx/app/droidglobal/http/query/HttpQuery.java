@@ -41,8 +41,8 @@ public class HttpQuery {
 
     public HttpQuery innerJoin(String table2, String column_1, String column_2){
         innerJoin.append(" INNER JOIN  ").append(table2)
-                .append(" ").append(column_1)
-                .append(" ON ").append(column_2);
+                .append(" ON ").append(column_1)
+                .append(" = ").append(column_2);
         return this;
     }
 
