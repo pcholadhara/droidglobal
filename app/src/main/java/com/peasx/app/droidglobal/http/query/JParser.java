@@ -84,6 +84,15 @@ public class JParser<T> {
         }
     }
 
+
+    public void loadData(ModelLoader<T> load){
+          load.run(getModel());
+    }
+
+    public void loadData(ListLoader<T> load){
+          load.run(getList());
+    }
+
     public ArrayList<T> getList(){
           list = new ArrayList<>();
         try {
@@ -99,7 +108,6 @@ public class JParser<T> {
 
         return list;
     }
-
 
     private void setKeys(){
         jKeys = new ArrayList<>();
