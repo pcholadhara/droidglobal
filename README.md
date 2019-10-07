@@ -16,7 +16,7 @@ Add the JitPack repository to your build file. Add it in your root build.gradle 
 Add the dependency
   
     	dependencies {
-	        implementation 'com.github.choladhara:droidglobal:19.09.03'
+	        implementation 'com.github.choladhara:droidglobal:19.10.04'
 	}
 
   
