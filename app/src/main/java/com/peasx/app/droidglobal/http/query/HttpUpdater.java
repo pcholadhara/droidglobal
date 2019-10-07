@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class HttpUpdater {
@@ -26,9 +27,24 @@ public class HttpUpdater {
         return this;
     }
 
+    public HttpUpdater setColumns(Map map){
+        this.json = new JSONObject(map);
+        return this;
+    }
+
     public HttpUpdater setParams(JSONObject params) {
         this.params = params;
         return this;
+    }
+
+    public HttpUpdater setParams(Map map){
+        this.params = new JSONObject(map);
+        return this;
+    }
+
+
+    public HashMap<String, String> getParams(){
+        return getMap();
     }
 
     public HashMap<String, String> getMap(){

@@ -1,11 +1,11 @@
 package com.peasx.app.droidglobal.http.query;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 
 public class HttpQuery {
+    public HttpQuery(){}
+
     public HttpQuery(String tableName){
         this.tableName = tableName;
     }
@@ -93,7 +93,6 @@ public class HttpQuery {
         return this;
     }
 
-
     public HttpQuery filter(String filter, String[] params){
         where.append(" WHERE ").append(filter);
         StringBuilder queryBuilder = new StringBuilder("");
@@ -104,6 +103,26 @@ public class HttpQuery {
         return this;
     }
 
+    public HttpQuery filter(String[] args){
+        StringBuilder queryBuilder = new StringBuilder("");
+        for(int i = 0; i < args.length ; i++){
+            queryBuilder.append((i < args.length-1) ? args[i] + ", " : args[i]);
+        }
+        this.params = queryBuilder.toString();
+        return this;
+    }
+
+
+    public HashMap<String, String> getRequestParam(){
+        HashMap<String, String> map = new HashMap<>();
+        map.put("json", select);
+        map.put("param", params);
+        return map;
+    }
+
+    public HashMap<String, String> getParam(){
+        return getMap();
+    }
 
     public HashMap<String, String> getMap(){
         StringBuilder queryBuilder = new StringBuilder("SELECT ");
@@ -111,10 +130,11 @@ public class HttpQuery {
 
         queryBuilder.append(!innerJoin.toString().isEmpty() ? innerJoin : "");
         queryBuilder.append(!where.toString().isEmpty() ? where : "");
+        queryBuilder.append(!groupBy.isEmpty() ? groupBy : "");
         queryBuilder.append(!orderBy.isEmpty() ? orderBy : "");
         queryBuilder.append(limit   > 0 ? " LIMIT " + limit : "");
         queryBuilder.append(offset  > 0 ? " OFFSET " + offset : "");
-        queryBuilder.append(!groupBy.isEmpty() ? groupBy : "");
+
 
         HashMap<String, String> map = new HashMap<>();
         if(!dbName.isEmpty()){
@@ -126,14 +146,6 @@ public class HttpQuery {
         return map;
     }
 
-    private void runs(){
-        OnQuery q = new OnQuery(){
-            @Override
-            public void processObject(JSONObject jsonObject) {
-                super.processObject(jsonObject);
-            }
-        };
-    }
 
 
     private String dbName       = "";
