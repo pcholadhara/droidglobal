@@ -1,8 +1,8 @@
 package com.peasx.app.droidglobal.ui.util;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.Toolbar;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.peasx.app.droidglobal.R;
 
