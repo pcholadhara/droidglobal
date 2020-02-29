@@ -4,10 +4,12 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
+import androidx.appcompat.widget.AppCompatImageView;
+
 /**
  * Created by Pranjal on 11/5/15.
  */
-public class ProportionalImage extends android.support.v7.widget.AppCompatImageView {
+public class ProportionalImage extends AppCompatImageView {
 
     public ProportionalImage(Context context) {
         super(context);

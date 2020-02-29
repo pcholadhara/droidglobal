@@ -7,6 +7,4 @@ public interface JSONResponse {
     String ERROR_TAG    = "HTTP_ERROR";
     String JSON_ERROR   = "JSON_ERROR";
 
-
-
 }

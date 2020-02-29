@@ -10,6 +10,9 @@ public class JSONParser implements JSONResponse{
     public JSONParser(String jsonString){
         this.jsonString = jsonString;
     }
+    public JSONParser(JSONObject j){
+        this.json = j;
+    }
 
     public void parse(){
         try{
@@ -17,6 +20,11 @@ public class JSONParser implements JSONResponse{
         }catch (JSONException ex){
             Log.d(JSON_ERROR, ex.toString());
         }
+    }
+
+    public JSONObject getParsedJSON(){
+        parse();
+        return json;
     }
 
     public JSONObject getParsedJSON(){
