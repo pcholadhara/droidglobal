@@ -17,8 +17,23 @@ public class HttpGet {
         this.context = context;
     }
 
+    public HttpGet setUrl(String url){
+        this.url = url;
+        return this;
+    }
 
-    public void getJson(String url, final GetCallback calback){
+    public HttpGet addParam(String key, String value){
+           this.url = url+ "?" + key + "=" + value;
+           return this;
+    }
+
+    public HttpGet and(String key, String value){
+           this.url = "&"+ key + "=" + value;
+           return this;
+    }
+
+
+    public void getResponse(final GetCallback calback){
         this.networkError = new NetworkError(context);
         Log.d(NetRequest.TAG, url);
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
@@ -64,6 +79,7 @@ public class HttpGet {
 
 
     NetworkError networkError;
+    String url = "";
 
 
 }

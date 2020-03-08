@@ -17,7 +17,7 @@ public class FragmentTitle {
     public static void changeToHome(Context context, String title){
         activity = (AppCompatActivity)context;
         activity.getSupportActionBar().setTitle(title);
-        activity.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer_menu);
+        activity.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer_menu_white);
     }
 
     static AppCompatActivity activity;

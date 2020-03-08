@@ -40,7 +40,7 @@ public class HttpPost {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, error.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "Network Error", Toast.LENGTH_SHORT).show();
                     }
                 }
                 ){

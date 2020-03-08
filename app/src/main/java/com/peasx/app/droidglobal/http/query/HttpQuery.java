@@ -103,6 +103,16 @@ public class HttpQuery {
         return this;
     }
 
+    public HttpQuery filter(String filter, Object[] params){
+        where.append(" WHERE ").append(filter);
+        StringBuilder queryBuilder = new StringBuilder("");
+        for(int i = 0; i < params.length ; i++){
+            queryBuilder.append((i < params.length-1) ? params[i] + ", " : params[i]);
+        }
+        this.params = queryBuilder.toString();
+        return this;
+    }
+
     public HttpQuery filter(String[] args){
         StringBuilder queryBuilder = new StringBuilder("");
         for(int i = 0; i < args.length ; i++){
