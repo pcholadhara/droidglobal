@@ -50,16 +50,19 @@ public class HttpPost {
             }
         };
 
-        request.setRetryPolicy(new DefaultRetryPolicy(10000,
+        request.setRetryPolicy(new DefaultRetryPolicy(INITIAL_TIME_OUT,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         request.setTag(NetRequest.TAG);
         NetRequest.getInstance(context).addToRequestQueue(request);
     }
 
+
+
 /*---------------------------------------------------------------------*/
     Context context;
     Map<String,String> params;
     String url;
+    int INITIAL_TIME_OUT = 0;
 
 }
