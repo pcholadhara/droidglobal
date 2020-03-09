@@ -50,9 +50,7 @@ public class HttpPost {
             }
         };
 
-        request.setRetryPolicy(new DefaultRetryPolicy(INITIAL_TIME_OUT,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        request.setRetryPolicy(new DefaultRetryPolicy(INITIAL_TIME_OUT, DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         request.setTag(NetRequest.TAG);
         NetRequest.getInstance(context).addToRequestQueue(request);
     }
@@ -64,5 +62,6 @@ public class HttpPost {
     Map<String,String> params;
     String url;
     int INITIAL_TIME_OUT = 0;
+    int DEFAULT_MAX_RETRIES = 0;
 
 }
