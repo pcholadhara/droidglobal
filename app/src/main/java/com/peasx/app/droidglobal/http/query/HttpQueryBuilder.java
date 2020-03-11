@@ -146,7 +146,7 @@ public class HttpQueryBuilder {
         try {
             json.put("db_name", dbName);
             json.put("query", queryBuilder.toString());
-            json.put("param", String.valueOf(paramsList));
+            json.put("param", paramsList.toString());
         }catch (JSONException ex){
             Log.d(QUERY_BUILDER, ex.toString());}
 
