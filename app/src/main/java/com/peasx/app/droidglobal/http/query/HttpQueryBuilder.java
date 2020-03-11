@@ -107,7 +107,7 @@ public class HttpQueryBuilder {
         where.append(" WHERE ").append(filter);
         paramsList  = new JSONArray();
         for(int i = 0; i < args.length ; i++){
-            paramsList.put(args);
+            paramsList.put(args[i]);
         }
         return this;
     }
