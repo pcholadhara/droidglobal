@@ -146,9 +146,10 @@ public class HttpQueryBuilder {
         try {
             json.put("db_name", dbName);
             json.put("query", queryBuilder.toString());
-            json.put("param", paramsList.toString());
+            json.put("param", paramsList);
         }catch (JSONException ex){
-            Log.d(QUERY_BUILDER, ex.toString());}
+            Log.d(QUERY_BUILDER, ex.toString());
+        }
 
         Map map = new HashMap();
         map.put("json", json.toString());
