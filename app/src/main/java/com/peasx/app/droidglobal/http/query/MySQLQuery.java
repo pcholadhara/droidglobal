@@ -3,8 +3,6 @@ package com.peasx.app.droidglobal.http.query;
 
 import android.util.Log;
 
-import com.peasx.app.droidglobal.http.connect.HttpPost;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,64 +10,64 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HttpQueryBuilder {
-    public HttpQueryBuilder(){}
+public class MySQLQuery {
+    public MySQLQuery(){}
 
-    public HttpQueryBuilder(String tableName){
+    public MySQLQuery(String tableName){
         this.tableName = tableName;
     }
 
-    public HttpQueryBuilder setDb(String dbName){
+    public MySQLQuery setDb(String dbName){
             this.dbName = dbName;
             return this;
     }
 
-    public HttpQueryBuilder selectAll(){
+    public MySQLQuery selectAll(){
         this.select = " * ";
         return this;
     }
 
-    public HttpQueryBuilder select(String tableColumns){
+    public MySQLQuery select(String tableColumns){
         this.select = tableColumns;
         return this;
     }
 
-    public HttpQueryBuilder count(String count, String as){
+    public MySQLQuery count(String count, String as){
         this.select = " COUNT( "+ count+" ) AS "+as;
         return this;
     }
 
-    public HttpQueryBuilder sum(String column, String as){
+    public MySQLQuery sum(String column, String as){
         this.select = " SUM( "+ column+" ) AS "+as;
         return this;
     }
 
-    public HttpQueryBuilder innerJoin(String table2, String column_1, String column_2){
+    public MySQLQuery innerJoin(String table2, String column_1, String column_2){
         innerJoin.append(" INNER JOIN  ").append(table2)
                 .append(" ON ").append(column_1)
                 .append(" = ").append(column_2);
         return this;
     }
 
-    public HttpQueryBuilder orderBy(String column, boolean asc){
+    public MySQLQuery orderBy(String column, boolean asc){
         this.orderBy = " ORDER BY " + column + (asc ? " ASC " : " DESC ");
         return this;
     }
 
-    public HttpQueryBuilder limit(int limit){
+    public MySQLQuery limit(int limit){
         this.limit = limit; return this;
     }
 
-    public HttpQueryBuilder offset(int offset){
+    public MySQLQuery offset(int offset){
         this.offset = offset; return this;
     }
 
-    public HttpQueryBuilder groupBy(String tableColumns){
+    public MySQLQuery groupBy(String tableColumns){
         this.groupBy = " GROUP BY " + tableColumns;
         return this;
     }
 
-    public HttpQueryBuilder groupBy(String[] tableColumns){
+    public MySQLQuery groupBy(String[] tableColumns){
         StringBuilder queryBuilder = new StringBuilder(" GROUP BY ");
         for(int i = 0; i < tableColumns.length ; i++){
             queryBuilder.append((i < tableColumns.length-1) ? tableColumns[i] + " , " : tableColumns[i]);
@@ -78,32 +76,32 @@ public class HttpQueryBuilder {
         return this;
     }
 
-    public HttpQueryBuilder where(String condition){
+    public MySQLQuery where(String condition){
         where.append( " WHERE ").append(condition);
         return this;
     }
 
-    public HttpQueryBuilder where(String column, String value){
+    public MySQLQuery where(String column, String value){
         where.append(" WHERE ").append(column).append(" = '").append(value).append("' ");
         return this;
     }
 
-    public HttpQueryBuilder where(String column, long value){
+    public MySQLQuery where(String column, long value){
         where.append(" WHERE ").append(column).append(" = ").append(value);
         return this;
     }
 
-    public HttpQueryBuilder where(String column, int value){
+    public MySQLQuery where(String column, int value){
         where.append(" WHERE ").append(column).append(" = ").append(value);
         return this;
     }
 
-    public HttpQueryBuilder where(String column, double value){
+    public MySQLQuery where(String column, double value){
         where.append(" WHERE ").append(column).append(" = ").append(value);
         return this;
     }
 
-    public HttpQueryBuilder filter(String filter, Object[] args){
+    public MySQLQuery filter(String filter, Object[] args){
         where.append(" WHERE ").append(filter);
         paramsList  = new JSONArray();
         for(int i = 0; i < args.length ; i++){
