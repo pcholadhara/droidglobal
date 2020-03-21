@@ -45,7 +45,8 @@ public class MySQLUpdater {
     }
 
 
-    JSONObject params, columns;
+    JSONObject params   = new JSONObject();
+    JSONObject columns  = new JSONObject();
     String tableName    = "";
     String dbName       = "";
 
