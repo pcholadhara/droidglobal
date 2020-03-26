@@ -1,26 +1,27 @@
 package com.peasx.app.droidglobal.http.query;
 
 import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class MySQLUpdater {
+public class DerbyUpdater {
 
-    public MySQLUpdater(String tableName){
+    public DerbyUpdater(String tableName){
         this.tableName = tableName;
     }
 
-    public MySQLUpdater setDb(String db){
+    public DerbyUpdater setDb(String db){
         this.dbName= db; return this;
     }
 
-    public MySQLUpdater setColumns(Map map){
+    public DerbyUpdater setColumns(Map map){
         this.columns = new JSONObject(map);
         return this;
     }
 
-    public MySQLUpdater setParams(Map map){
+    public DerbyUpdater setParams(Map map){
         this.params = new JSONObject(map);
         return this;
     }
