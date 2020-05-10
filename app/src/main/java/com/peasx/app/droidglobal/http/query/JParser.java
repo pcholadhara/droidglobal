@@ -136,7 +136,7 @@ public class JParser<T> {
                   }
 
                   if(type == long.class) {
-                      method.invoke(t, r.get(key) == null ? 0 : r.getLong(key));
+                      method.invoke(t, r.get(key) == null ? 0 : Long.parseLong(r.get(key).toString()));
                   }
 
                   if(type == double.class) {
