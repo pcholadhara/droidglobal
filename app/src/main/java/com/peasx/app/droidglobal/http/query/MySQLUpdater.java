@@ -1,6 +1,8 @@
 package com.peasx.app.droidglobal.http.query;
 
 import org.json.JSONObject;
+
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,11 +28,19 @@ public class MySQLUpdater {
     }
 
 
-    public <T> MySQLUpdater setObject(T t){
-        Class klass = t.getClass();
-
+    public <T> MySQLUpdater setInsertObject(T t){
+        MapBuilder<T> mapBuilder = new MapBuilder<>(t).build();
+        columns = new JSONObject(mapBuilder.getiCols());
         return this;
     }
+
+    public <T> MySQLUpdater setUpdateObject(T t){
+        MapBuilder<T> mapBuilder = new MapBuilder<>(t).build();
+        columns = new JSONObject(mapBuilder.getuCols());
+        params  = new JSONObject(mapBuilder.getuParms());
+        return this;
+    }
+
 
     public HashMap<String, String> getParams(){
         return getMap();
