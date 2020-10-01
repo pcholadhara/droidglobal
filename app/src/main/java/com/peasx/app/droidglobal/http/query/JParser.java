@@ -158,11 +158,6 @@ public class JParser<T> {
     }
 
 
-    private void testX(){
-        Internet i = new Internet();
-        MySQLUpdater updater = new MySQLUpdater("");
-        updater.setObject(i);
-    }
 
     JSONObject json, row;
     JSONArray jArr;
