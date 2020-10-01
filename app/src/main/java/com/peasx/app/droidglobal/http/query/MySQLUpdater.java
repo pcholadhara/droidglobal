@@ -25,9 +25,17 @@ public class MySQLUpdater {
         return this;
     }
 
+
+    public <T> MySQLUpdater setObject(T t){
+        Class klass = t.getClass();
+
+        return this;
+    }
+
     public HashMap<String, String> getParams(){
         return getMap();
     }
+
 
     public HashMap<String, String> getMap(){
         HashMap<String, String> map = new HashMap<>();

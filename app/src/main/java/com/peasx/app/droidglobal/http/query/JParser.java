@@ -2,6 +2,8 @@ package com.peasx.app.droidglobal.http.query;
 
 import android.util.Log;
 
+import com.peasx.app.droidglobal.http.connect.Internet;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,7 +20,6 @@ public class JParser<T> {
     }
 
     public JParser setString(String jStr){
-        Log.d("HOME", jStr);
         this.jStr = jStr;
         parse();
         return this;
@@ -115,7 +116,6 @@ public class JParser<T> {
         while (it.hasNext()){
             jKeys.add(it.next());
         }
-
     }
 
     private void createObject(){
@@ -157,6 +157,12 @@ public class JParser<T> {
               }
     }
 
+
+    private void testX(){
+        Internet i = new Internet();
+        MySQLUpdater updater = new MySQLUpdater("");
+        updater.setObject(i);
+    }
 
     JSONObject json, row;
     JSONArray jArr;
