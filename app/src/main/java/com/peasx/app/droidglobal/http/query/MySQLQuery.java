@@ -54,6 +54,11 @@ public class MySQLQuery {
         return this;
     }
 
+    public MySQLQuery orderBy(String string){
+        this.orderBy = " ORDER BY " + string +" ";
+        return this;
+    }
+
     public MySQLQuery limit(int limit){
         this.limit = limit; return this;
     }
